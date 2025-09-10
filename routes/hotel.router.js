@@ -1,6 +1,7 @@
-const express = require('express');
+import express from 'express';
+import Hotels from '../model/hotel.model.js';
+
 const router = express.Router();
-const Hotels = require('../model/hotel.model');
 
 router.route("/")
     .get(async (req, res) => {      // http://localhost:3500/api/hotels
@@ -18,4 +19,4 @@ router.route("/")
         }
     })
 
-module.exports = router;
+export default router;

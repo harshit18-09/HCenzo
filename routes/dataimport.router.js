@@ -1,8 +1,7 @@
-const express = require('express');
-const mongoose = require('mongoose');
-
-const Hotel = require('../model/hotel.model');
-const hotels = require('../data/hotels');
+import express from 'express';
+import mongoose from 'mongoose';
+import Hotel from '../model/hotel.model.js';
+import hotels from '../data/hotels.js';
 
 const router = express.Router();
 router.route("/").post(async(req, res) => {
@@ -15,4 +14,4 @@ router.route("/").post(async(req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

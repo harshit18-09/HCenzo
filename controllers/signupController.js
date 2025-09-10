@@ -1,5 +1,5 @@
-const CryptoJS = require("crypto-js");
-const User = require('../model/user.model');
+import CryptoJS from "crypto-js";
+import User from '../model/user.model.js';
 
 
 
@@ -64,4 +64,4 @@ const signupHandler = async (req, res) => {
         }
     };
 
-module.exports = signupHandler;
+export default signupHandler;

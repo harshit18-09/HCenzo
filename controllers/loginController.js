@@ -1,7 +1,6 @@
-const CryptoJS = require('crypto-js');
-const jwt = require('jsonwebtoken');
-
-const User = require("../model/user.model");
+import CryptoJS from 'crypto-js';
+import jwt from 'jsonwebtoken';
+import User from "../model/user.model.js";
 
 const loginHandler = async (req, res) => {
     try{
@@ -21,4 +20,4 @@ const loginHandler = async (req, res) => {
     }
 }
 
-module.exports = loginHandler;
+export default loginHandler;

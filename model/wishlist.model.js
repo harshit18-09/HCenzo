@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const wishlistSchema = new mongoose.Schema({
     hotelId: { type: String, required: true },
@@ -9,4 +9,4 @@ const wishlistSchema = new mongoose.Schema({
 
 const Wishlist = mongoose.model("Wishlist", wishlistSchema);
 
-module.exports = Wishlist;
+export default Wishlist;

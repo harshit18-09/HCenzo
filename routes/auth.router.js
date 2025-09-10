@@ -1,7 +1,6 @@
-const express = require('express');
-
-const singupHandler = require("../controllers/signupController");
-const loginHandler = require("../controllers/loginController");
+import express from 'express';
+import singupHandler from "../controllers/signupController.js";
+import loginHandler from "../controllers/loginController.js";
 
 const router = express.Router();
 
@@ -11,4 +10,4 @@ router.route("/register")
 router.route("/login")
     .post(loginHandler)
 
-module.exports = router;
+export default router;

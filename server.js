@@ -1,19 +1,17 @@
-const express = require('express');
-const mongoose = require('mongoose');
-
-const hotelDataAddedToDBRouter = require("./routes/dataimport.router");
-const categoryDataAddedToDBRouter = require("./routes/categoryimport.router");
-const dotenv = require('dotenv');
-dotenv.config();
-const hotelRouter = require('./routes/hotel.router');
-const categoryRouter = require('./routes/category.router');
-const singleHotelRouter = require('./routes/singlehotel.router');
-const authRouter = require('./routes/auth.router');
-const WishlistRouter = require('./routes/wishlist.router');
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import hotelDataAddedToDBRouter from "./routes/dataimport.router.js";
+import categoryDataAddedToDBRouter from "./routes/categoryimport.router.js";
+import hotelRouter from './routes/hotel.router.js';
+import categoryRouter from './routes/category.router.js';
+import singleHotelRouter from './routes/singlehotel.router.js';
+import authRouter from './routes/auth.router.js';
+import WishlistRouter from './routes/wishlist.router.js';
+import connectDB from './config/dbconfig.js';
 
 const app = express();
-
-const connectDB = require('./config/dbconfig');
+dotenv.config();
 
 app.use(express.json());
 connectDB();

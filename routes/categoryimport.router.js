@@ -1,7 +1,6 @@
-const express = require('express');
-
-const Category = require("../model/category.model");
-const categories = require("../data/categories");
+import express from 'express';
+import Category from "../model/category.model.js";
+import categories from "../data/categories.js";
 
 const router = express.Router();
 
@@ -16,4 +15,4 @@ router.route("/")
         }
     })
 
-module.exports = router;
+export default router;

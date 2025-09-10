@@ -1,7 +1,7 @@
-const express = require('express');
-const router = express.Router();
+import express from 'express';
+import Hotel from '../model/hotel.model.js';
 
-const Hotel = require('../model/hotel.model');
+const router = express.Router();
 
 router.route("/:id")
     .get(async (req, res) => {
@@ -15,4 +15,4 @@ router.route("/:id")
         }
     })
 
-module.exports = router;
+export default router;

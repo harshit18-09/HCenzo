@@ -1,4 +1,4 @@
-const { v4: uuid } = require('uuid');
+import { v4 as uuid } from 'uuid';
 
 const categories = {
     "data": [
@@ -31,4 +31,4 @@ const categories = {
     
 
 
-module.exports = categories
+export default categories;

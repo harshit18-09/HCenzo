@@ -1,8 +1,6 @@
-const express = require('express');
-const verifyUser = require("../middleware/verifyuser");
-const wishlistController = require("../controllers/wishlistController");
-
-const { createWishlistHandler, deleteWishlistHandler, getWishlistHandler } = wishlistController;
+import express from 'express';
+import verifyUser from "../middleware/verifyuser.js";
+import { createWishlistHandler, deleteWishlistHandler, getWishlistHandler } from "../controllers/wishlistController.js";
 
 const router = express.Router();
 
@@ -15,4 +13,4 @@ router.route("/:id")
 router.route("/")
     .get(verifyUser, getWishlistHandler)
 
-module.exports = router;
+export default router;

@@ -1,7 +1,7 @@
-const express = require('express');
-const router = express.Router();
+import express from 'express';
+import Category from '../model/category.model.js';
 
-const Category = require('../model/category.model');
+const router = express.Router();
 
 router.route("/")
     .get(async (req, res) => {      // http://localhost:3500/api/categories
@@ -14,4 +14,4 @@ router.route("/")
         }
     })
 
-module.exports = router;
+export default router;
