@@ -9,7 +9,7 @@ router.route("/")
         try {
             const { v4: uuid } = await import('uuid');
             const categoriesData = categories.data.map(cat => ({
-                category: cat.category,
+                ...cat,
                 id: uuid()
             }));
             const categoriesInDB = await Category.insertMany(categoriesData);
