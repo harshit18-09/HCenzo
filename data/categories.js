@@ -1,32 +1,34 @@
-const categories = {
-    "data": [
-        { id: uuid(), category: "National Parks" },
-        { id: uuid(), category: "Tiny Homes" },
-        { id: uuid(), category: "Farms" },
-        { id: uuid(), category: "Golfing" },
-        { id: uuid(), category: "Island" },
-        { id: uuid(), category: "Campervans" },
-        { id: uuid(), category: "Cabins" },
-        { id: uuid(), category: "Design" },
-        { id: uuid(), category: "Amazing Pools" },
-        { id: uuid(), category: "Lakefront" },
-        { id: uuid(), category: "Surfing" },
-        { id: uuid(), category: "A-frames" },
-        { id: uuid(), category: "Treehouses" },
-        { id: uuid(), category: "Tropical" },
-        { id: uuid(), category: "Bed & Breakfast" },
-        { id: uuid(), category: "Caves" },
-        { id: uuid(), category: "Shared Homes" },
-        { id: uuid(), category: "Earth Homes" },
-        { id: uuid(), category: "Countryside" },
-        { id: uuid(), category: "Luxe" },
-        { id: uuid(), category: "Amazing Views" },
-        { id: uuid(), category: "Castle" },
-        { id: uuid(), category: "Iconic Sites" },
-        { id: uuid(), category: "Historical Homes" },
-    ]
-}
-    
+import { v4 as uuid } from 'uuid';
 
+const categoriesData = [
+    "National Parks",
+    "Tiny Homes",
+    "Farms",
+    "Golfing",
+    "Island",
+    "Campervans",
+    "Cabins",
+    "Design",
+    "Amazing Pools",
+    "Lakefront",
+    "Surfing",
+    "A-frames",
+    "Treehouses",
+    "Tropical",
+    "Bed & Breakfast",
+    "Caves",
+    "Shared Homes",
+    "Earth Homes",
+    "Countryside",
+    "Luxe",
+    "Amazing Views",
+    "Castle",
+    "Iconic Sites",
+    "Historical Homes"
+];
+
+const categories = {
+    data: categoriesData.map(category => ({ category }))
+};
 
 export default categories;
