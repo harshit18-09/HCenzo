@@ -7,11 +7,7 @@ const router = express.Router();
 router.route("/")
     .post(async (req, res) => {
         try {
-            const { v4: uuid } = await import('uuid');
-            const categoriesData = categories.data.map(cat => ({
-                id: uuid(),
-                category: cat.category
-            }));
+            const categoriesData = await categories.data();
             const categoriesInDB = await Category.insertMany(categoriesData);
             res.json(categoriesInDB);
         } catch(err) {

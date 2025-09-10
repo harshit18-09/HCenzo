@@ -1,5 +1,7 @@
 const hotels = {
-    "data": [
+    "data": async () => {
+        const { v4: uuid } = await import('uuid');
+        return [
         {
             name: "Whispering Pines Cottages",
             category: "National Parks",

@@ -6,16 +6,13 @@ import hotels from '../data/hotels.js';
 const router = express.Router();
 router.route("/").post(async(req, res) => {
     try {
-        const { v4: uuid } = await import('uuid');
         await Hotel.removeAllListeners();
-        const hotelsData = hotels.data.map(hotel => ({
-            ...hotel,
-            id: uuid()
-        }));
+        const hotelsData = await hotels.data();
         const hotelsinDB = await Hotel.insertMany(hotelsData);
         res.json(hotelsinDB);
     } catch(e) {
         console.error("Error importing hotels:", e);
+        res.status(500).json({ message: "Could not add hotels" });
     }
 });
 
