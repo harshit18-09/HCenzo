@@ -6,12 +6,17 @@ const router = express.Router();
 
 router.route("/")
     .post(async (req, res) => {
-        try{
-            const categoriesInDB = await Category.insertMany(categories.data);
-            res.json(categoriesInDB)
-        }catch(err){
+        try {
+            const { v4: uuid } = await import('uuid');
+            const categoriesData = categories.data.map(cat => ({
+                id: uuid(),
+                category: cat.category
+            }));
+            const categoriesInDB = await Category.insertMany(categoriesData);
+            res.json(categoriesInDB);
+        } catch(err) {
             console.log(err);
-            res.json({ message: "Could not add categories to DB"})
+            res.json({ message: "Could not add categories to DB"});
         }
     })
 

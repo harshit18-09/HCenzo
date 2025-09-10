@@ -1,7 +1,10 @@
-import { v4 as uuid } from 'uuid';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 
 const categories = {
-    "data": [
+    "data": async () => {
+        const { v4: uuid } = await import('uuid');
+        return [
         { id: uuid(), category: "National Parks" },
         { id: uuid(), category: "Tiny Homes" },
         { id: uuid(), category: "Farms" },
