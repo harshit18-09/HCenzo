@@ -4,10 +4,12 @@ import loginHandler from "../controllers/loginController.js";
 
 const router = express.Router();
 
-router.route("/register")
-    .post(singupHandler)
+router.post("/register", singupHandler);
+router.post("/login", loginHandler);
 
-router.route("/login")
-    .post(loginHandler)
+// Add a GET route for testing
+router.get("/test", (req, res) => {
+    res.json({ message: "Auth router is working" });
+});
 
 export default router;
