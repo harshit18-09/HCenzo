@@ -3,11 +3,14 @@ import User from '../model/user.model.js';
 
 const signupHandler = async (req, res) => {
         try {
+            // Sanitize phone number: remove extra spaces and ensure proper format
+            const sanitizedNumber = req.body.number.toString().trim().replace(/\s+/g, ' ');
+            
             // Check if user with email or number already exists
             const existingUser = await User.findOne({
                 $or: [
                     { email: req.body.email },
-                    { number: req.body.number }
+                    { number: sanitizedNumber }
                 ]
             });
 
@@ -32,7 +35,7 @@ const signupHandler = async (req, res) => {
 
             const newUser = new User({
                 username: req.body.username,
-                number: req.body.number,
+                number: sanitizedNumber,
                 email: req.body.email,
                 password: CryptoJS.AES.encrypt(req.body.password, process.env.PASSWORD_SECRET_KEY).toString()
             });

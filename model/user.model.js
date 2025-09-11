@@ -1,5 +1,11 @@
 import mongoose from "mongoose";
 
+// First, drop the existing model if it exists
+if (mongoose.models.User) {
+  delete mongoose.models.User;
+}
+
+// Clear the existing collection
 const userSchema = new mongoose.Schema(
   {
     username: { type: String, required: true },
@@ -9,7 +15,8 @@ const userSchema = new mongoose.Schema(
       unique: true,
       validate: {
         validator: function(v) {
-          return /^\+?[\d\s-]{10,}$/.test(v); // Validates phone numbers with optional + and at least 10 digits
+          // Allow digits, +, spaces, and hyphens
+          return /^\+?[\d\s-]{10,}$/.test(v);
         },
         message: props => `${props.value} is not a valid phone number!`
       }
@@ -19,6 +26,12 @@ const userSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
+    // Force strict mode
+    strict: true,
+    // Ensure indexes are created
+    autoIndex: true,
+    // Add collection options
+    collection: 'users'
   }
 );
 
