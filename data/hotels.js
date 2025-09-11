@@ -1,7 +1,7 @@
+import { v4 as uuid } from 'uuid';
+
 const hotels = {
-    "data": async () => {
-        const { v4: uuid } = await import('uuid');
-        return [
+    "data": [
         {
             name: "Whispering Pines Cottages",
             category: "National Parks",
@@ -869,7 +869,6 @@ const hotels = {
             isCancelable: false,
         },
     ]
-}
 }
 
 export default hotels;

@@ -5,12 +5,12 @@ import { createWishlistHandler, deleteWishlistHandler, getWishlistHandler } from
 const router = express.Router();
 
 router.route("/")
-    .post(verifyUser, createWishlistHandler)
+    .post(verifyUser, createWishlistHandler);
 
 router.route("/:id")
-    .delete(verifyUser, deleteWishlistHandler)
+    .delete(verifyUser, deleteWishlistHandler);
 
 router.route("/")
-    .get(verifyUser, getWishlistHandler)
+    .get(verifyUser, getWishlistHandler);
 
 export default router;

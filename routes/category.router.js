@@ -9,9 +9,9 @@ router.route("/")
             const categories = await Category.find({});
             categories ? res.json(categories) : res.status(404).json({ message: "No categories found" });
         } catch (e) {
-            console.log(e);
-            res.status(500).json({ message: "No categories found" });
+            console.error(e);
+            res.status(500).json({ message: "Error fetching categories", error: e.message });
         }
-    })
+    });
 
 export default router;

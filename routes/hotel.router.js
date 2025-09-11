@@ -15,8 +15,9 @@ router.route("/")
             }
             hotels ? res.json(hotels) : res.status(404).json({message: "No hotels found"});
         }catch (e) {
-            console.log("Error fetching hotels:", e);
+            console.error("Error fetching hotels:", e);
+            res.status(500).json({ message: "Error fetching hotels", error: e.message });
         }
-    })
+    });
 
 export default router;

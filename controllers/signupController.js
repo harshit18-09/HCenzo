@@ -1,8 +1,6 @@
 import CryptoJS from "crypto-js";
 import User from '../model/user.model.js';
 
-
-
 const signupHandler = async (req, res) => {
         try {
             // Check if user with email or number already exists

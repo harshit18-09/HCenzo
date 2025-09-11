@@ -6,18 +6,13 @@ const router = express.Router();
 
 router.route("/")
     .post(async (req, res) => {
-        try {
-            const { v4: uuid } = await import('uuid');
-            const categoriesData = categories.data.map(cat => ({
-                ...cat,
-                id: uuid()
-            }));
-            const categoriesInDB = await Category.insertMany(categoriesData);
+        try{
+            const categoriesInDB = await Category.insertMany(categories.data);
             res.json(categoriesInDB);
-        } catch(err) {
-            console.log(err);
-            res.json({ message: "Could not add categories to DB"});
+        }catch(err){
+            console.error(err);
+            res.status(500).json({ message: "Could not add categories to DB" });
         }
-    })
+    });
 
 export default router;
